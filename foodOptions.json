@@ -1,0 +1,131 @@
+// 酱料
+{
+  "name": "酱料",
+  "i18nName": "Sauce",
+  "options":
+    [
+      {"name": "芝麻酱", "i18nName": "Sesame", "price": 0, "selected": true},
+      {"name": "香甜酱", "i18nName": "Sweet", "price": 0, "selected": false},
+      {"name": "千岛酱", "i18nName": "Thousand-Island", "price": 0, "selected": false},
+      {"name": "日式油醋汁", "i18nName": "Japanese vinaigrette", "price": 0, "selected": false},
+      {"name": "凯撒酱", "i18nName": "Caesar dressing", "price": 0, "selected": false},
+      {"name":"香辣牛肉酱","i18nName":"Spicy beef","price":200,"selected":false},
+      {"name":"不需要酱料","i18nName":"Sauce-free","price":0,"selected":false}
+    ]
+}
+
+{
+  "name": "主食",
+  "i18nName": "Staple",
+  "options":
+  [
+    {"name": "杂粮米", "i18nName": "Mixed grain rice", "price": 0, "selected": true},
+    {"name": "荞麦面", "i18nName": "Buckwheat noodles", "price": 0, "selected": false},
+    {"name": "无主食", "i18nName": "Staple-free", "price": 0, "selected": false}
+  ]
+}
+
+{
+  "name": "鸡蛋",
+  "i18nName": "Egg",
+  "options":
+  [
+    {"name": "溏心蛋 ", "i18nName": "Soft-boiled", "price": 0, "selected": true},
+    {"name": "全熟蛋", "i18nName": "Hard-boiled", "price": 0, "selected": false}
+  ]
+}
+
+{
+  "name": "肉类选择",
+  "i18nName": "Meat",
+  "options":
+  [
+    {"name": "鸡胸肉 ", "i18nName": "Chicken breast", "price": 0, "selected": true},
+    {"name": "黑椒牛肉", "i18nName": "Black pepper beef", "price": 0, "selected": false}
+  ]
+}
+
+{
+  "name": "酱料",
+  "i18nName": "Sauce",
+  "options":
+  [
+    {"name": "香甜酱", "i18nName": "Sweet", "price": 0, "selected": true},
+    {"name": "千岛酱", "i18nName": "Thousand-Island", "price": 0, "selected": false},
+    {"name":"不需要酱料","i18nName":"Sauce-free","price":0,"selected":false}
+  ]
+}
+
+{
+  "name": "冰量",
+  "i18nName": "Ice volume",
+  "options":
+  [
+    {"name": "正常冰", "i18nName": "Regular", "price": 0, "selected": true},
+    {"name": "少冰", "i18nName": "Less", "price": 0, "selected": false},
+    {"name":"多冰","i18nName":"More","price":0,"selected":false}
+
+  ]
+}
+
+{
+  "name": "份量",
+  "i18nName": "Volume",
+  "options":
+  [
+    {"name": "中杯", "i18nName": "Regular", "price": 0, "selected": true},
+    {"name": "大杯", "i18nName": "Extra", "price": 3, "selected": false}
+  ]
+}
+
+{
+  "name": "浓缩份数",
+  "i18nName": "Concentrated parts",
+  "options":
+  [
+    {"name": "正常", "i18nName": "Regular", "price": 0, "selected": true},
+    {"name": "加倍", "i18nName": "Double", "price": 5, "selected": false}
+  ]
+}
+
+{
+  "name": "牛奶",
+  "i18nName": "Milk",
+  "options":
+  [
+    {"name": "鲜牛乳(清香)", "i18nName": "Fresh cow's milk", "price": 0, "selected": true}
+  ]
+}
+
+{
+  "name": "温度",
+  "i18nName": "Type",
+  "options":
+  [
+    {"name": "冰", "i18nName": "Ice", "price": 0, "selected": true},
+    {"name": "热", "i18nName": "Hot", "price": 0, "selected": false}
+  ]
+}
+
+{
+  "name": "温度",
+  "i18nName": "Temperature",
+  "options":
+  [
+    {"name": "正常冰", "i18nName": "Regular Ice", "price": 0, "selected": true},
+    {"name": "少冰", "i18nName": "Less Ice", "price": 0, "selected": false},
+    {"name": "多冰", "i18nName": "More Ice", "price": 0, "selected": false},
+    {"name": "热(八分满)", "i18nName": "Hot", "price": 0, "selected": false}
+  ]
+}
+
+{
+  "name": "糖",
+  "i18nName": "Sugar",
+  "options":
+  [
+    {"name": "不另外加糖", "i18nName": "No extra sugar", "price": 0, "selected": true},
+    {"name": "少糖", "i18nName": "Less sugar", "price": 0, "selected": false},
+    {"name": "正常糖", "i18nName": "Regular", "price": 0, "selected": false}
+  ]
+}

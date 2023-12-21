@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <conversionRule conversionWord="customcolor"
+                    converterClass="com.qsj.qsjMain.config.LogBackColorizeConfig"/>
+    <contextName>qsj-main</contextName>
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
+    <springProperty scope="context" name="topicId" source="qsj.log.topicId"/>
+    <springProperty scope="context" name="accessKeyId" source="qsj.log.accessKeyId"/>
+    <springProperty scope="context" name="accessKeySecret" source="qsj.log.accessKeySecret"/>
+    <!--控制台输出 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%customcolor(%-5level) %d{HH:mm:ss.SSS} ${APP_NAME} [%thread] [%X{traceId}] %logger{36}:%L - %msg%n
+            </pattern>
+            <!-- 控制台也要使用UTF-8，不要使用GBK，否则会中文乱码 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <File>log/main.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/main-%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>100</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%customcolor(%-5level) %d{HH:mm:ss.SSS} ${APP_NAME} [%thread] [%X{traceId}] %logger{36}:%L - %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="fileAppenderAsync" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>512</queueSize>
+        <appender-ref ref="fileAppender"/>
+    </appender>
+
+    <appender name="stdoutAsync" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="stdout"/>
+    </appender>
+
+    <appender name="txAppender" class="com.tencentcloudapi.cls.LoghubAppender">
+        <!--必选项-->
+        <endpoint>ap-guangzhou.cls.tencentcs.com</endpoint>
+        <accessKeyId>${accessKeyId}</accessKeyId>
+        <accessKeySecret>${accessKeySecret}</accessKeySecret>
+        <topicId>${topicId}</topicId>
+        <!-- 可选项 详见 '参数说明'-->
+        <totalSizeInBytes>104857600</totalSizeInBytes>
+        <maxBlockMs>0</maxBlockMs>
+        <sendThreadCount>8</sendThreadCount>
+        <batchSizeThresholdInBytes>524288</batchSizeThresholdInBytes>
+        <batchCountThreshold>4096</batchCountThreshold>
+        <lingerMs>2000</lingerMs>
+        <retries>10</retries>
+        <baseRetryBackoffMs>100</baseRetryBackoffMs>
+        <maxRetryBackoffMs>50000</maxRetryBackoffMs>
+
+
+        <!-- 可选项 设置时间格式 -->
+        <timeFormat>yyyy-MM-dd'T'HH:mm:ssZ</timeFormat>
+        <timeZone>Asia/Shanghai</timeZone>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg</pattern>
+        </encoder>
+        <mdcFields>THREAD_ID,MDC_KEY</mdcFields>
+    </appender>
+
+    <!--文档输出 -->
+
+    <springProfile name="test,dev,beta">
+        <logger name="com.qsj.qsjMain" level="INFO"/>
+        <root level="INFO">
+            <appender-ref ref="txAppender"/>
+            <appender-ref ref="stdoutAsync"/>
+            <appender-ref ref="fileAppenderAsync"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <logger name="com.qsj.qsjMain" level="INFO"/>
+        <root level="INFO">
+            <appender-ref ref="txAppender"/>
+            <appender-ref ref="stdoutAsync"/>
+            <appender-ref ref="fileAppenderAsync"/>
+        </root>
+    </springProfile>
+
+
+</configuration>

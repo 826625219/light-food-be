@@ -1,0 +1,1 @@
+package com.qsj.qsjMain.utils;import com.google.gson.GsonBuilder;/** * json util */public class JsonUtil {    public static String toJsonStr(Object data) {        return new GsonBuilder().create().toJson(data);    }}

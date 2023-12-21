@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: "@mvn.profile.active@"
+  application:
+    name: qsjMain
+  mvc:
+    servlet:
+      load-on-startup: 1
+    throw-exception-if-no-handler-found: true
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write_null_map_values: true
+      write_dates_as_timestamps: false
+    deserialization:
+      fail_on_unknown_properties: false
+    parser:
+      allow_single_quotes: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/sqj?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useCompression=true
+    username: root
+    password: XmhDM58DbZa8J7w3
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+server:
+  port: 13003

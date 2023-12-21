@@ -1,0 +1,34 @@
+qsj:
+  url:
+    delivery-callback: https://dev.lightmeal-service.com/api/v1/order/deliveryCallback
+    pay-callback: https://dev.lightmeal-service.com/api/v1/order/payNotify
+    delivery-prefix: https://newopen.qa.imdada.cn/
+    judanke-prefix: https://joptest.judanke.cn/
+  log:
+    accessKeyId: AKIDuliaIwOWTYUEB0gNpSvUD3CC1hClgJI9
+    accessKeySecret: y89EUmu2YzZzUMKk1A8JGU5wcKrP5yy2
+    topicId: f06a3811-8c1b-4bc3-91e0-c95c9f52f4bb
+  qrcode:
+    type: trial
+  delivery:
+    sourceId: 1934292756
+    judanke-appkey: 6039db73a4d790db5dbf0043211146fa0a0856d9
+    judanke-app_id: 100156
+  ewx:
+    sToken: jUwNEZGDT2KFjCzOxA
+    sCorpID: wwb0df74af9b2623f0
+    sEncodingAESKey: mbvbieom1LDGXedupHwTp26phUn093pUAp59McVZZJI
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.16.32.7:3306/qsj_dev?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useCompression=true
+    username: root
+    password: XmhDM58DbZa8J7w3
+  redis:
+    host: 172.16.0.17
+    port: 6379
+    database: 1
+
+server:
+  port: 14003
